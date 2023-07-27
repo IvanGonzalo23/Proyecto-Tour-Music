@@ -7,7 +7,6 @@ from tkinter import messagebox
 from modelo.clase_usuarios import Usuario
 import customtkinter as ctk
 
-
 class Createuser(ctk.CTkFrame):
     """Clase que representa el Frame de la ventana"""
     def __init__(self,parent):
@@ -16,7 +15,7 @@ class Createuser(ctk.CTkFrame):
         self.labels()
         self.entrys()
         self.buttons()
-
+        
     def labels(self):
         """Funcion donde ingresa se pone los Labels de la ventana"""    
         label_name = ctk.CTkLabel(self,text="Name:",font=("roboto",14,),text_color="white")
@@ -29,7 +28,7 @@ class Createuser(ctk.CTkFrame):
         label_password.place(x=130,y=225)
         label_user_name = ctk.CTkLabel(self,text="User Name",font=("roboto",14),text_color="white")
         label_user_name.place(x=130,y=275)
-    
+        
     def entrys(self):
         """Funcion donde se pone los Entrys de la ventana"""
         self.name_entry = ctk.CTkEntry(self,width=140,height=28)
@@ -39,7 +38,6 @@ class Createuser(ctk.CTkFrame):
         self.email_entry = ctk.CTkEntry(self,width=140,height=28)
         self.email_entry.place(x=250,y=175)
         self.password_entry = ctk.CTkEntry(self,width=140,height=28,show="*")
-            
         self.password_entry.place(x=250,y=225)
         self.user_name_entry = ctk.CTkEntry(self,width=140,height=28)
         self.user_name_entry.place(x=250,y=275)
@@ -53,7 +51,7 @@ class Createuser(ctk.CTkFrame):
             messagebox.showerror("Error", "La contraseña debe tener más de 8 caracteres.")
             return
         self.parent.destroy()
-
+        
     def buttons(self):
         """Botones del Frame"""
         button_create = ctk.CTkButton(self,text="Crear",command=self.a_json)

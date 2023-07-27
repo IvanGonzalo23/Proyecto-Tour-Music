@@ -5,5 +5,19 @@
         "Email": "prueba@hotmail.com",
         "Password": "prueba_contrase\u00f1a",
         "User": "prueba_usuario"
+    },
+    {
+        "Name": "ivan",
+        "Last_name": "mendoza",
+        "Email": "alzabet-ivang@hotmail.com",
+        "Password": "programacion23",
+        "User": "atson master"
+    },
+    {
+        "Name": "pruebaNombre",
+        "Last_name": "pruebaApellido",
+        "Email": "pruebaEmail",
+        "Password": "pruebaContra",
+        "User": "pruebaUsuario"
     }
 ]

@@ -7,13 +7,12 @@ sys.path.append(project_dir)
 from tkinter import messagebox
 import json
 from .ventana_crear import Createuser
-
+from .ventana_evento import Principal
 
 class Frame(ctk.CTkFrame):
     """Clase que representa el Frame de la ventana login"""
     def __init__(self,parent):
         super().__init__(parent)
-       
         self.parent = parent
         self.configure(fg_color="black")
         self.crear_widgets()
@@ -30,30 +29,38 @@ class Frame(ctk.CTkFrame):
         login.place(x=76,y=220)
         sign_up = ctk.CTkButton(self,width=120,height=20,border_color="black",text="Sign Up",command=lambda:[self.crear_cuenta()],fg_color="#2F242C")
         sign_up.place(x=76,y=270)
-    
+        
     def login_usuario(self):
             """Función que verifica si el usuario y la contraseña coinciden con los datos del archivo JSON"""
             usuario_ingresado = self.usuario_entry.get()
             password_ingresado = self.password_entry.get()
-            
             with open("./data/usuarios.json", "r") as f:
-                usuarios_json = json.load(f)
-                
+                usuarios_json = json.load(f)  
             for usuario in usuarios_json:
                 if usuario_ingresado == usuario["User"] and password_ingresado == usuario["Password"]:
-                    messagebox.showinfo("Login exitoso", "¡Bienvenido {}!".format(usuario_ingresado))
+                    self.ventana_principal()
                     return
-
-            
             messagebox.showerror("Error de inicio de sesión", "Usuario o contraseña incorrectos")
-
+            
     def crear_cuenta(self):
         """Funcion que importa el modulo ventana_crear y abre mediante un top level
         la ventana para crear un usuario"""
+        ventana_principal = self.winfo_toplevel()
+        self.pack_forget()
+        ventana_principal.withdraw()
         ventana = ctk.CTkToplevel(self)
         ventana.resizable(False,False)
         ventana.title("Crear usuario")
         ventana._apply_appearance_mode("dark")
         user_app =  Createuser(ventana)
+        user_app.configure(fg_color="black",height=400,width = 600)
+        user_app.grid()
+        
+    def ventana_principal(self):
+        ventana_evento = ctk.CTkToplevel(self)
+        ventana_evento.resizable(False,False)
+        ventana_evento.title("Eventos")
+        ventana_evento._apply_appearance_mode("dark")
+        user_app =  Principal(ventana_evento)
         user_app.configure(fg_color="black",height=400,width = 600)
         user_app.grid()
