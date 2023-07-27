@@ -17,7 +17,6 @@ class Usuario:
             with open(archivo, "r") as f:
                 self.data = json.load(f)
         
-        
         if len(self.password) > 8:
             self_dict = self.to_dict()
             self.data.append(self_dict)

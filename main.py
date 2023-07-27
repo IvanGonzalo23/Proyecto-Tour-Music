@@ -21,7 +21,6 @@ class TourMusical(ctk.CTk):
         self.btn_iniciar.place(x=90,y=200)
     
     def abrir_ventana(self):
-        self.withdraw()
         
         """Funcion donde abre mediante un boton la ventana del login"""
         ventana = ctk.CTkToplevel(self)
@@ -32,6 +31,8 @@ class TourMusical(ctk.CTk):
         ventana.configure(fg_color="black")
         app = Frame(ventana)
         app.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
+        
+    
         
     def carpeta(self):
         """Funcion extra para crear una carpeta data si es que no existe"""

@@ -19,5 +19,26 @@
         "Email": "pruebaEmail",
         "Password": "pruebaContra",
         "User": "pruebaUsuario"
+    },
+    {
+        "Name": "sda",
+        "Last_name": "dsad",
+        "Email": "dasd",
+        "Password": "dasdasdsad",
+        "User": "dsad"
+    },
+    {
+        "Name": "dsad",
+        "Last_name": "sdsad",
+        "Email": "dsasad",
+        "Password": "dsadasddasdas",
+        "User": "asddasdas"
+    },
+    {
+        "Name": "DASDSADAS",
+        "Last_name": "DSADSAD",
+        "Email": "ASDSADASD",
+        "Password": "ASDDASDSADAS",
+        "User": "DSADSAD"
     }
 ]

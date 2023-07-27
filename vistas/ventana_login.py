@@ -45,9 +45,6 @@ class Frame(ctk.CTkFrame):
     def crear_cuenta(self):
         """Funcion que importa el modulo ventana_crear y abre mediante un top level
         la ventana para crear un usuario"""
-        ventana_principal = self.winfo_toplevel()
-        self.pack_forget()
-        ventana_principal.withdraw()
         ventana = ctk.CTkToplevel(self)
         ventana.resizable(False,False)
         ventana.title("Crear usuario")
@@ -60,7 +57,6 @@ class Frame(ctk.CTkFrame):
         ventana_evento = ctk.CTkToplevel(self)
         ventana_evento.resizable(False,False)
         ventana_evento.title("Eventos")
-        ventana_evento._apply_appearance_mode("dark")
         user_app =  Principal(ventana_evento)
-        user_app.configure(fg_color="black",height=400,width = 600)
+        user_app.configure(fg_color="#060047",height=400,width = 600)
         user_app.grid()
