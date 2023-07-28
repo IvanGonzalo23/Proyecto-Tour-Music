@@ -15,20 +15,22 @@ class Frame(ctk.CTkFrame):
         super().__init__(parent)
         self.parent = parent
         self.configure(fg_color="black")
-        self.crear_widgets()
-        
-    def crear_widgets(self):
-        """Funcion que crea widgets para el programa"""
+        """Frame del programa"""
+        self.frame =ctk.CTkFrame(self,width=500,height=500,fg_color="black",bg_color="black")
+        self.frame.grid()
+        """Label del Frame"""
         self.label = ctk.CTkLabel(self,text="Inicio de Sesion",font=("roboto",20),text_color="white")
-        self.label.place(x=70,y=60)
+        self.label.place(x=170,y=80)
+        """Entrys del Frame"""
         self.usuario_entry = ctk.CTkEntry(self,width=140,height=28,border_color="green")
-        self.usuario_entry.place(x=68,y=120)
+        self.usuario_entry.place(x=170,y=120)
         self.password_entry = ctk.CTkEntry(self,width=140,height=28,border_color="green",show="*")
-        self.password_entry.place(x=68,y=170)
-        login = ctk.CTkButton(self,width=120,height=20,border_color="black",text="Login",fg_color="#2F242C",command=lambda:[self.login_usuario()])
-        login.place(x=76,y=220)
-        sign_up = ctk.CTkButton(self,width=120,height=20,border_color="black",text="Sign Up",command=lambda:[self.crear_cuenta()],fg_color="#2F242C")
-        sign_up.place(x=76,y=270)
+        self.password_entry.place(x=170,y=170)
+        """Botones del Frame"""
+        self.login = ctk.CTkButton(self,width=120,height=20,border_color="black",text="Login",fg_color="#2F242C",command=lambda:[self.login_usuario()])
+        self.login.place(x=175,y=220)
+        self.sign_up = ctk.CTkButton(self,width=120,height=20,border_color="black",text="Sign Up",command=self.crear_cuenta,fg_color="#2F242C")
+        self.sign_up.place(x=175,y=270)
         
     def login_usuario(self):
             """Función que verifica si el usuario y la contraseña coinciden con los datos del archivo JSON"""
@@ -42,18 +44,14 @@ class Frame(ctk.CTkFrame):
                     return
             messagebox.showerror("Error de inicio de sesión", "Usuario o contraseña incorrectos")
             
-    def crear_cuenta(self):
-        """Funcion que importa el modulo ventana_crear y abre mediante un top level
-        la ventana para crear un usuario"""
-        ventana = ctk.CTkToplevel(self)
-        ventana.resizable(False,False)
-        ventana.title("Crear usuario")
-        ventana._apply_appearance_mode("dark")
-        user_app =  Createuser(ventana)
-        user_app.configure(fg_color="black",height=400,width = 600)
-        user_app.grid()
+    def crear_cuenta(self): 
+        """Funcion para ir al Frame donde se crea los usuarios"""
+        self.grid_forget()
+        self.fram = Createuser(self.parent)
+        self.fram.grid()
         
     def ventana_principal(self):
+        """Funcion que crea una ventana para ir a la ventana principal"""
         ventana_evento = ctk.CTkToplevel(self)
         ventana_evento.resizable(False,False)
         ventana_evento.title("Eventos")

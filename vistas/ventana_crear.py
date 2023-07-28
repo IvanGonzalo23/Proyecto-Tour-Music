@@ -5,18 +5,24 @@ import sys
 sys.path.append(project_dir)
 from tkinter import messagebox
 from modelo.clase_usuarios import Usuario
+
 import customtkinter as ctk
+
 class Createuser(ctk.CTkFrame):
     """Clase que representa el Frame de la ventana"""
     def __init__(self,parent):
         super().__init__(parent)
         self.parent = parent
-        self.labels()
-        self.entrys()
-        self.buttons()
+        self.configure(fg_color="black")
+        # tamaño de la ventana
+        self.crear_widgets()
         
-    def labels(self):
-        """Funcion donde ingresa se pone los Labels de la ventana"""    
+    def crear_widgets(self):
+        """tamaño del frame"""
+        ventana = ctk.CTkFrame(self,width=500,height=500,fg_color="black",bg_color="black")
+        ventana.grid()
+
+        """Funcion que crea widgets para el programa"""
         label_name = ctk.CTkLabel(self,text="Name:",font=("roboto",14,),text_color="yellow")
         label_name.place(x=130,y=75)
         label_last_name = ctk.CTkLabel(self,text="Last Name:",font=("roboto",14),text_color="yellow")
@@ -27,21 +33,24 @@ class Createuser(ctk.CTkFrame):
         label_password.place(x=130,y=225)
         label_user_name = ctk.CTkLabel(self,text="User Name",font=("roboto",14),text_color="yellow")
         label_user_name.place(x=130,y=275)
-        
-    def entrys(self):
-        """Funcion donde se pone los Entrys de la ventana"""
+
         self.name_entry = ctk.CTkEntry(self,width=140,height=28,border_color="#461959")
         self.name_entry.place(x=250,y=75)
-        self.last_name_entry= ctk.CTkEntry(self,width=140,height=28)
+        self.last_name_entry= ctk.CTkEntry(self,width=140,height=28,border_color="#461959")
         self.last_name_entry.place(x=250,y=125)
-        self.email_entry = ctk.CTkEntry(self,width=140,height=28)
+        self.email_entry = ctk.CTkEntry(self,width=140,height=28,border_color="#461959")
         self.email_entry.place(x=250,y=175)
-        self.password_entry = ctk.CTkEntry(self,width=140,height=28,show="*")
+        self.password_entry = ctk.CTkEntry(self,width=140,height=28,show="*",border_color="#461959")
         self.password_entry.place(x=250,y=225)
-        self.user_name_entry = ctk.CTkEntry(self,width=140,height=28)
+        self.user_name_entry = ctk.CTkEntry(self,width=140,height=28,border_color="#461959")
         self.user_name_entry.place(x=250,y=275)
-        
-    def a_json(self):
+
+        self.btn_crear = ctk.CTkButton(self,text="Crear",text_color="black",command=self.crear_usuario)
+        self.btn_crear.place(x=100,y=375)
+        self.btn_volver = ctk.CTkButton(self,text="Volver",text_color="black",command=self.volver)
+        self.btn_volver.place(x=300,y=375)
+
+    def crear_usuario(self):
         """Funcion donde toma los parametros de la clase Usuario del archivo clase_usuario y le da los valores 
         ingresado en los Entrys correspondientes. Para luego ponerlos en un JSON"""
         usuario = Usuario(self.name_entry.get(), self.last_name_entry.get(), self.email_entry.get(), self.password_entry.get(), self.user_name_entry.get())
@@ -50,11 +59,16 @@ class Createuser(ctk.CTkFrame):
             messagebox.showerror("Error", "La contraseña debe tener más de 8 caracteres.")
             return
         
+        if len(self.name_entry.get()) == 0 or len(self.last_name_entry.get()) == 0 or len(self.email_entry.get()) == 0 or len(self.password_entry.get()) == 0 or len(self.user_name_entry.get()) == 0:
+            messagebox.showerror("Error", "Por favor llene todos los campos.")
+            return
         
+        messagebox.showinfo("Usuario creado", "El usuario ha sido creado con éxito.")
+        self.volver()
+
+    def volver(self):
+        """Funcion para volver a la ventana anterior"""
+        self.grid_forget()
+        self.parent.show_login_frame()  
         
-    def buttons(self):
-        """Botones del Frame"""
-        button_create = ctk.CTkButton(self,text="Crear",command=self.a_json,text_color="black")
-        button_create.place(x=200,y=375)
-        button_cancel = ctk.CTkButton(self,text="Cancelar",command=self.parent.destroy,text_color="black")
-        button_cancel.place(x=350,y=375)
+    
