@@ -14,7 +14,7 @@ class Usuario:
     def crear_json(self, archivo):
         """Funcion que crea un objeto JSON"""
         if os.path.exists(archivo):
-            with open(archivo, "r") as f:
+            with open(archivo, "r",encoding="utf-8") as f:
                 self.data = json.load(f)
         
         if len(self.password) > 8 and len(self.name) > 0 and len(self.last_name) > 0 and len(self.email) > 0 and len(self.user) > 0:

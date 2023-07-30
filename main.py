@@ -29,7 +29,6 @@ class TourMusical(ctk.CTk):
         
     
     
-    
     def show_login_frame(self):
         """Función para mostrar la ventana de inicio de sesión"""
         if hasattr(self, 'login_frame'):

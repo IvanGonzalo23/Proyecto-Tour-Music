@@ -1,16 +1,9 @@
 [
     {
-        "Name": "usuario",
-        "Last_name": "usuario",
+        "Name": "prueba",
+        "Last_name": "prueba",
         "Email": "prueba",
         "Password": "prueba123",
         "User": "prueba"
-    },
-    {
-        "Name": "prueba1",
-        "Last_name": "prueba1",
-        "Email": "prueba1",
-        "Password": "prueba1123",
-        "User": "prueba1"
     }
 ]

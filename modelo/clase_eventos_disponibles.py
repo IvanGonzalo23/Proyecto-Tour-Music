@@ -20,7 +20,7 @@ class Eventos_disponibles:
         archivo_json = os.path.join("data", "eventos_disponibles.json")
         eventos = []
         if os.path.exists(archivo_json):
-            with open(archivo_json, 'r') as file:
+            with open(archivo_json, 'r',encoding="utf-8") as file:
                 data = json.load(file)
                 for item in data:
                     evento = cls(
