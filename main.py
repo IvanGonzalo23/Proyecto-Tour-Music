@@ -1,17 +1,18 @@
 import customtkinter as ctk
 from vistas.ventana_login import Frame
+from vistas.ventana_principal import Principal
 import os
 class TourMusical(ctk.CTk):
     """Clase donde representa un programa de musica"""
     def __init__(self):
         super().__init__()
         self.title("Tour Musical")
-        self.geometry("500x500")
+        self.geometry("700x500")
         self.resizable(False,False)
         self._set_appearance_mode("dark")
         ctk.set_default_color_theme("green")
         self.carpeta()
-        self.frame = ctk.CTkFrame(self,width=500,height=569,fg_color="black",bg_color="black")
+        self.frame = ctk.CTkFrame(self,width=700,height=500,fg_color="black",bg_color="black")
         self.frame.grid()
         
         self.label = ctk.CTkLabel(self.frame,fg_color="black",text_color="yellow",text="Bienvenido a Tour Music",font=("Open Sans",20))
@@ -21,7 +22,6 @@ class TourMusical(ctk.CTk):
         self.btn_iniciar.place(x=190,y=300)
     
     def abrir_ventana(self):
-        
         """Funcion donde abre mediante un boton la ventana del login"""
         self.frame.grid_forget()
         self.frame = Frame(self)
@@ -37,6 +37,13 @@ class TourMusical(ctk.CTk):
         self.login_frame = Frame(self)
         self.login_frame.grid()    
     
+    
+    def show_principal_frame(self):
+        """Funcion para mostrar la ventana principal"""
+        if hasattr(self,"principal_frame"):
+            self.principal_frame.destroy()
+        self.principal_frame = Principal(self)
+        self.principal_frame.grid()
     
     def carpeta(self):
         """Funcion extra para crear una carpeta data si es que no existe"""

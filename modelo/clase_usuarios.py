@@ -3,7 +3,7 @@ import os
 
 class Usuario:
     """Clase que representa un usuario"""
-    def __init__(self, name, last_name, email, password, user):
+    def __init__(self,name, last_name, email, password, user):
         self.name = name
         self.last_name = last_name
         self.email = email
@@ -20,6 +20,7 @@ class Usuario:
         if len(self.password) > 8 and len(self.name) > 0 and len(self.last_name) > 0 and len(self.email) > 0 and len(self.user) > 0:
             self_dict = self.to_dict()
             self.data.append(self_dict)
+            
 
             with open(archivo, "w") as f:
                 json.dump(self.data, f, indent=4)

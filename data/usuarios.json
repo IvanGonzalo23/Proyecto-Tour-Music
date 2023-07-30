@@ -1,52 +1,16 @@
 [
     {
-        "Name": "prueba_nombre",
-        "Last_name": "prueba_apelldio",
-        "Email": "prueba@hotmail.com",
-        "Password": "prueba_contrase\u00f1a",
-        "User": "prueba_usuario"
+        "Name": "usuario",
+        "Last_name": "usuario",
+        "Email": "prueba",
+        "Password": "prueba123",
+        "User": "prueba"
     },
     {
-        "Name": "ivan",
-        "Last_name": "mendoza",
-        "Email": "alzabet-ivang@hotmail.com",
-        "Password": "programacion23",
-        "User": "atson master"
-    },
-    {
-        "Name": "pruebaNombre",
-        "Last_name": "pruebaApellido",
-        "Email": "pruebaEmail",
-        "Password": "pruebaContra",
-        "User": "pruebaUsuario"
-    },
-    {
-        "Name": "sda",
-        "Last_name": "dsad",
-        "Email": "dasd",
-        "Password": "dasdasdsad",
-        "User": "dsad"
-    },
-    {
-        "Name": "dsad",
-        "Last_name": "sdsad",
-        "Email": "dsasad",
-        "Password": "dsadasddasdas",
-        "User": "asddasdas"
-    },
-    {
-        "Name": "DASDSADAS",
-        "Last_name": "DSADSAD",
-        "Email": "ASDSADASD",
-        "Password": "ASDDASDSADAS",
-        "User": "DSADSAD"
-    },
-   
-    {
-        "Name": "dasdds",
-        "Last_name": "dsad",
-        "Email": "dsadsad",
-        "Password": "dasdasddasd",
-        "User": "dasdd"
+        "Name": "prueba1",
+        "Last_name": "prueba1",
+        "Email": "prueba1",
+        "Password": "prueba1123",
+        "User": "prueba1"
     }
 ]

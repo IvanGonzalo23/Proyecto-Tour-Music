@@ -5,7 +5,7 @@ import sys
 sys.path.append(project_dir)
 from tkinter import messagebox
 from modelo.clase_usuarios import Usuario
-
+from PIL import Image
 import customtkinter as ctk
 
 class Createuser(ctk.CTkFrame):
@@ -14,15 +14,26 @@ class Createuser(ctk.CTkFrame):
         super().__init__(parent)
         self.parent = parent
         self.configure(fg_color="black")
-        # tamaño de la ventana
+        
         self.crear_widgets()
         
     def crear_widgets(self):
-        """tamaño del frame"""
-        ventana = ctk.CTkFrame(self,width=500,height=500,fg_color="black",bg_color="black")
+        """Funcion que crea widgets"""
+        ventana = ctk.CTkFrame(self,width=700,height=500,fg_color="black",bg_color="black") # tamaño del frame
         ventana.grid()
 
-        """Funcion que crea widgets para el programa"""
+        """Imagenes de los buttons"""
+        self.current_path = os.path.dirname(os.path.realpath(__file__)) #paquete donde ira los imagenes
+        self.creacion_image = os.path.join(self.current_path, "../img/creacion.png")
+        self.icono_creacion = ctk.CTkImage(Image.open(self.creacion_image),size=(60,60))
+        
+        self.retroceso_image = os.path.join(self.current_path,"../img/atras.png")
+        self.icono_retroceso = ctk.CTkImage(Image.open(self.retroceso_image),size=(60,60))
+        
+        
+        
+        
+        """Label del Frame"""
         label_name = ctk.CTkLabel(self,text="Name:",font=("roboto",14,),text_color="yellow")
         label_name.place(x=130,y=75)
         label_last_name = ctk.CTkLabel(self,text="Last Name:",font=("roboto",14),text_color="yellow")
@@ -34,6 +45,7 @@ class Createuser(ctk.CTkFrame):
         label_user_name = ctk.CTkLabel(self,text="User Name",font=("roboto",14),text_color="yellow")
         label_user_name.place(x=130,y=275)
 
+        """Entry del Frame"""
         self.name_entry = ctk.CTkEntry(self,width=140,height=28,border_color="#461959")
         self.name_entry.place(x=250,y=75)
         self.last_name_entry= ctk.CTkEntry(self,width=140,height=28,border_color="#461959")
@@ -45,10 +57,11 @@ class Createuser(ctk.CTkFrame):
         self.user_name_entry = ctk.CTkEntry(self,width=140,height=28,border_color="#461959")
         self.user_name_entry.place(x=250,y=275)
 
-        self.btn_crear = ctk.CTkButton(self,text="Crear",text_color="black",command=self.crear_usuario)
-        self.btn_crear.place(x=100,y=375)
-        self.btn_volver = ctk.CTkButton(self,text="Volver",text_color="black",command=self.volver)
-        self.btn_volver.place(x=300,y=375)
+        """Button del Frame"""
+        self.btn_volver = ctk.CTkButton(self,text=None,command=self.volver,image=self.icono_retroceso,fg_color="black",hover_color="black",cursor="hand2")
+        self.btn_volver.place(x=0,y=400)
+        self.btn_crear = ctk.CTkButton(self,text=None,command=self.crear_usuario,image=self.icono_creacion,fg_color="black",hover_color="black",cursor="hand2")
+        self.btn_crear.place(x=450,y=400)
 
     def crear_usuario(self):
         """Funcion donde toma los parametros de la clase Usuario del archivo clase_usuario y le da los valores 
