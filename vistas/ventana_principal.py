@@ -75,6 +75,7 @@ class Principal(ctk.CTkFrame):
         self.fra = Historial_ventana(self.parent)
         self.fra.grid()
     
+    
     def volver(self):
         self.grid_forget()
         self.parent.show_login_frame()

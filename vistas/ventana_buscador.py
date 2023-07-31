@@ -2,7 +2,8 @@ import tkinter as tk
 import customtkinter as ctk
 from modelo.clase_eventos_disponibles import Eventos_disponibles
 from tkinter import messagebox
-from PIL import Image
+from PIL import Image,ImageTk
+import tkintermapview
 import os
 
 class Buscador(ctk.CTkFrame):
@@ -35,10 +36,6 @@ class Buscador(ctk.CTkFrame):
         
         self.image_retroceder = os.path.join(self.current_path,"../img/retroceder.png")
         self.imagen_boton_retroceder = ctk.CTkImage(Image.open(self.image_retroceder),size=(40,40))
-        
-        
-        
-        
         
         """Entry del Frame"""
         self.entry_nombre_evento = ctk.CTkEntry(self,width=140,height=28,border_color="#38ad7e")
@@ -80,18 +77,13 @@ class Buscador(ctk.CTkFrame):
         for self.evento in self.eventos:
             if self.evento.nombre == self.nombre_ingresado or self.evento.artista == self.artista_ingresado or self.evento.genero == self.genero_ingresado or self.evento.hora == self.hora_ingresado or self.evento.ubicacion == self.ubicacion_ingresado:
                self.eventos_encontrados.append(self.evento)
-            else:
-               self.bandera = 0
         
         if len(self.eventos_encontrados) > 0: 
             messagebox.showinfo("Evento encontrado","Se encontraron los siguientes eventos:")
+            self.mostrar_evento_encontrado()
             
-            for evento in self.eventos_encontrados: # mostramos los eventos de la lista
-                messagebox.showinfo(evento.nombre, f"Artista: {evento.artista}\nGénero: {evento.genero}\nHora: {evento.hora}\nUbicación: {evento.ubicacion}")
         else:
             messagebox.showerror("No se encontro el evento","No se encontro similitud con lo ingresado")
-        
-            
             
         self.entry_nombre_evento.delete(0,tk.END)
         self.entry_nombre_artista.delete(0,tk.END)
@@ -99,5 +91,62 @@ class Buscador(ctk.CTkFrame):
         self.entry_hora.delete(0,tk.END)
         self.entry_ubicacion.delete(0,tk.END)
         
+    def mostrar_frame(self):
+        self.grid_forget()
+        self.mostrar_evento_encontrado()
+
+    
+    def mostrar_evento_encontrado(self):
+        if len(self.eventos_encontrados) > 0:
+            evento_encontrado = self.eventos_encontrados[0]  # Aquí asumimos que solo se muestra el primer evento encontrado
+
+            top = tk.Toplevel(self)
+            top.title("Evento Encontrado")
+            top.geometry("700x500")
+            frame = ctk.CTkFrame(top,width=700,height=500,fg_color="black")
+            frame.grid()
+
+            label_nombre = ctk.CTkLabel(frame, text=evento_encontrado.nombre)
+            label_nombre.place(x=0,y=60)
+
+            label_artista = ctk.CTkLabel(frame, text=evento_encontrado.artista)
+            label_artista.place(x=0,y=120)
+
+            label_genero = ctk.CTkLabel(frame, text=evento_encontrado.genero)
+            label_genero.place(x=0,y=180)
+
+            label_hora = ctk.CTkLabel(frame, text=evento_encontrado.hora)
+            label_hora.place(x=0,y=240)
+
+            label_ubicacion = ctk.CTkLabel(frame, text=evento_encontrado.ubicacion)
+            label_ubicacion.place(x=0,y=300)
+
+            label_fecha = ctk.CTkLabel(frame, text=evento_encontrado.fecha)
+            label_fecha.place(x=0,y=360)
+
+            label_direccion = ctk.CTkLabel(frame, text=evento_encontrado.direccion)
+            label_direccion.place(x=0,y=420)
+
+            info_mapa=f"{evento_encontrado.direccion} - {evento_encontrado.ubicacion}"
+            latitud = evento_encontrado.latitud 
+            longitud = evento_encontrado.longitud 
+            #falta modificar
         
-       
+            imagen=(os.path.join(self.current_path, evento_encontrado.imagen))
+            mapa = tkintermapview.TkinterMapView(frame, width=700, height=500, corner_radius=0)
+            mapa.set_position(-24.790383333333335, -65.41429999999999723)
+            mapa.set_zoom(16)
+            mapa.place(x=200,y=0)
+            mapa.set_tile_server("https://mt1.google.com/vt/lyrs=m@221097413&x={x}&y={y}&z={z}")
+            mapa.set_marker(latitud, longitud, info_mapa,image=imagen)
+            
+            
+            if  latitud and longitud is not None:
+                mapa.set_position(latitud,longitud)
+                mapa.set_zoom(18)
+        else:
+            messagebox.showerror("No se encontro el evento", "No se encontro similitud con lo ingresado")
+
+
+        
+        

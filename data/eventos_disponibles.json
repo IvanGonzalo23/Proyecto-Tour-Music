@@ -9,7 +9,7 @@
         "longitud": -65.41782054735144,
         "direccion": "Aniceto Latorre 1211",
         "hora": "23:00",
-        "imagen": "../img/El_Teatrino.jpg"
+        "imagen": "./img/El_Teatrino.jpg"
 
         
     },
