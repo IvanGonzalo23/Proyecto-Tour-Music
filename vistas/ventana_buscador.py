@@ -98,54 +98,53 @@ class Buscador(ctk.CTkFrame):
     
     def mostrar_evento_encontrado(self):
         if len(self.eventos_encontrados) > 0:
-            evento_encontrado = self.eventos_encontrados[0]  # Aquí asumimos que solo se muestra el primer evento encontrado
+            for eventos in self.eventos_encontrados: # Aquí asumimos que solo se muestra el primer evento encontrado
 
-            top = tk.Toplevel(self)
-            top.title("Evento Encontrado")
-            top.geometry("700x500")
-            frame = ctk.CTkFrame(top,width=700,height=500,fg_color="black")
-            frame.grid()
+                top = tk.Toplevel(self)
+                top.title("Evento Encontrado")
+                top.geometry("700x500")
+                frame = ctk.CTkFrame(top,width=700,height=500,fg_color="black")
+                frame.grid()
 
-            label_nombre = ctk.CTkLabel(frame, text=evento_encontrado.nombre)
-            label_nombre.place(x=0,y=60)
+                label_nombre = ctk.CTkLabel(frame, text=eventos.nombre)
+                label_nombre.place(x=0,y=60)
 
-            label_artista = ctk.CTkLabel(frame, text=evento_encontrado.artista)
-            label_artista.place(x=0,y=120)
+                label_artista = ctk.CTkLabel(frame, text=eventos.artista)
+                label_artista.place(x=0,y=120)
 
-            label_genero = ctk.CTkLabel(frame, text=evento_encontrado.genero)
-            label_genero.place(x=0,y=180)
+                label_genero = ctk.CTkLabel(frame, text=eventos.genero)
+                label_genero.place(x=0,y=180)
 
-            label_hora = ctk.CTkLabel(frame, text=evento_encontrado.hora)
-            label_hora.place(x=0,y=240)
+                label_hora = ctk.CTkLabel(frame, text=eventos.hora)
+                label_hora.place(x=0,y=240)
 
-            label_ubicacion = ctk.CTkLabel(frame, text=evento_encontrado.ubicacion)
-            label_ubicacion.place(x=0,y=300)
+                label_ubicacion = ctk.CTkLabel(frame, text=eventos.ubicacion)
+                label_ubicacion.place(x=0,y=300)
 
-            label_fecha = ctk.CTkLabel(frame, text=evento_encontrado.fecha)
-            label_fecha.place(x=0,y=360)
+                label_fecha = ctk.CTkLabel(frame, text=eventos.fecha)
+                label_fecha.place(x=0,y=360)
 
-            label_direccion = ctk.CTkLabel(frame, text=evento_encontrado.direccion)
-            label_direccion.place(x=0,y=420)
+                label_direccion = ctk.CTkLabel(frame, text=eventos.direccion)
+                label_direccion.place(x=0,y=420)
 
-            info_mapa=f"{evento_encontrado.direccion} - {evento_encontrado.ubicacion}"
-            latitud = evento_encontrado.latitud 
-            longitud = evento_encontrado.longitud 
-            #falta modificar
-        
-            imagen=(os.path.join(self.current_path, evento_encontrado.imagen))
-            mapa = tkintermapview.TkinterMapView(frame, width=700, height=500, corner_radius=0)
-            mapa.set_position(-24.790383333333335, -65.41429999999999723)
-            mapa.set_zoom(16)
-            mapa.place(x=200,y=0)
-            mapa.set_tile_server("https://mt1.google.com/vt/lyrs=m@221097413&x={x}&y={y}&z={z}")
-            mapa.set_marker(latitud, longitud, info_mapa,image=imagen)
+                info_mapa=f"{eventos.direccion} - {eventos.ubicacion}"
+                latitud = eventos.latitud 
+                longitud = eventos.longitud 
+                #falta modificar
             
-            
-            if  latitud and longitud is not None:
-                mapa.set_position(latitud,longitud)
-                mapa.set_zoom(18)
-        else:
-            messagebox.showerror("No se encontro el evento", "No se encontro similitud con lo ingresado")
+                mapa = tkintermapview.TkinterMapView(frame, width=700, height=500, corner_radius=0)
+                mapa.set_position(-24.790383333333335, -65.41429999999999723)
+                mapa.set_zoom(16)
+                mapa.place(x=200,y=0)
+                mapa.set_tile_server("https://mt1.google.com/vt/lyrs=m@221097413&x={x}&y={y}&z={z}")
+                mapa.set_marker(latitud, longitud, info_mapa,)
+                
+                
+                if  latitud and longitud is not None:
+                    mapa.set_position(latitud,longitud)
+                    mapa.set_zoom(18)
+                else:
+                    messagebox.showerror("No se encontro el evento", "No se encontro similitud con lo ingresado")
 
 
         
