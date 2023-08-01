@@ -2,6 +2,7 @@ import customtkinter as ctk
 from vistas.ventana_login import Frame
 from vistas.ventana_principal import Principal
 import os
+from PIL import Image
 class TourMusical(ctk.CTk):
     """Clase donde representa un programa de musica"""
     def __init__(self):
@@ -15,18 +16,24 @@ class TourMusical(ctk.CTk):
         self.frame = ctk.CTkFrame(self,width=700,height=500,fg_color="black",bg_color="black")
         self.frame.grid()
         
-        self.label = ctk.CTkLabel(self.frame,fg_color="black",text_color="yellow",text="Bienvenido a Tour Music",font=("Open Sans",20))
-        self.label.place(x=160,y=200)
+        self.paquete_imagenes = os.path.dirname(os.path.realpath(__file__))
+        self.imagen = os.path.join(self.paquete_imagenes,"img/encendido.png")
+        self.imagen_boton_encendido = ctk.CTkImage(Image.open(self.imagen),size=(60,60))
         
-        self.btn_iniciar = ctk.CTkButton(self.frame,text="Iniciar",text_color="black",command=self.abrir_ventana)
+        mi_fuente_titulo = ctk.CTkFont(family="Roboto", size=20, weight="bold")
+        
+        self.label = ctk.CTkLabel(self.frame,fg_color="black",text_color="yellow",text="Bienvenido a Tour Music",font=mi_fuente_titulo)
+        self.label.place(x=200,y=89)
+        
+        self.btn_iniciar = ctk.CTkButton(self.frame,text=None,fg_color="black",bg_color="black",hover_color="black",cursor="hand2",command=self.abrir_ventana,image=self.imagen_boton_encendido)
         self.btn_iniciar.place(x=190,y=300)
+        
     
     def abrir_ventana(self):
         """Funcion donde abre mediante un boton la ventana del login"""
         self.frame.grid_forget()
         self.frame = Frame(self)
         self.frame.grid()
-        
     
     
     def show_login_frame(self):

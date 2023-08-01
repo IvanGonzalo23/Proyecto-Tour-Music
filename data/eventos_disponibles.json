@@ -9,7 +9,7 @@
         "longitud": -65.41782054735144,
         "direccion": "Aniceto Latorre 1211",
         "hora": "23:00",
-        "imagen": "./img/El_Teatrino.jpg"
+        "imagen": "..\\img\\El_Teatrino.jpg"
 
         
     },
@@ -23,7 +23,7 @@
         "longitud": -65.40959362036189,
         "direccion": "Zuviría 70",
         "hora": "17:00",
-        "imagen": "../img/Teatro_provincial.jpg"
+        "imagen": "..\\img\\Teatro_provincial.jpg"
     },
     {   "id": 3,
         "Nombre": "Mas alla",
@@ -35,7 +35,7 @@
         "longitud": -65.41974609337173,
         "direccion": "C.Fernandes Molinas",
         "hora": "13:00",
-        "imagen": "../img/Estadio.jpg"
+        "imagen": "..\\img\\Estadio.jpg"
     },
     {   "id": 4,
         "Nombre": "Tu",
@@ -47,7 +47,7 @@
         "longitud": -65.40948307618658,
         "direccion": "O'Higgins 585",
         "hora": "11:00",
-        "imagen": "../img/La_Ventolera.jpg"
+        "imagen": "..\\img\\La_Ventolera.jpg"
     },
     {   "id": 5,
         "Nombre": "Voz",
@@ -59,7 +59,7 @@
         "longitud": -65.40886307618581,
         "direccion": "Caseros 460",
         "hora": "21:00",
-        "imagen": "../img/Casa_de_la_cultura.jpg"
+        "imagen": "..\\img\\Casa_de_la_cultura.jpg"
     },
     {
         "id": 6,
@@ -72,6 +72,6 @@
         "longitud": -65.41862234187376,
         "direccion": "Esteco 275",
         "hora": "15:00",
-        "imagen": "../img/Paseo_de_los_poetas.jpg"
+        "imagen": "..\\img\\Paseo_de_los_poetas.jpg"
     }
 ]

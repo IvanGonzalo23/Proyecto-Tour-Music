@@ -7,6 +7,8 @@ from tkinter import messagebox
 from modelo.clase_usuarios import Usuario
 from PIL import Image
 import customtkinter as ctk
+from modelo.clase_evento_usuario import ModeloEvento
+import json
 
 class Createuser(ctk.CTkFrame):
     """Clase que representa el Frame de la ventana"""
@@ -14,7 +16,6 @@ class Createuser(ctk.CTkFrame):
         super().__init__(parent)
         self.parent = parent
         self.configure(fg_color="black")
-        
         self.crear_widgets()
         
     def crear_widgets(self):
@@ -29,8 +30,6 @@ class Createuser(ctk.CTkFrame):
         
         self.retroceso_image = os.path.join(self.current_path,"../img/atras.png")
         self.icono_retroceso = ctk.CTkImage(Image.open(self.retroceso_image),size=(60,60))
-        
-        
         
         
         """Label del Frame"""
@@ -63,6 +62,7 @@ class Createuser(ctk.CTkFrame):
         self.btn_crear = ctk.CTkButton(self,text=None,command=self.crear_usuario,image=self.icono_creacion,fg_color="black",hover_color="black",cursor="hand2")
         self.btn_crear.place(x=450,y=400)
 
+
     def crear_usuario(self):
         """Funcion donde toma los parametros de la clase Usuario del archivo clase_usuario y le da los valores 
         ingresado en los Entrys correspondientes. Para luego ponerlos en un JSON"""
@@ -76,12 +76,13 @@ class Createuser(ctk.CTkFrame):
             messagebox.showerror("Error", "Por favor llene todos los campos.")
             return
         
+        modelo_evento = ModeloEvento(usuario.to_dict()) 
+        modelo_evento.asignar_eventos_aleatorios()
+        
         messagebox.showinfo("Usuario creado", "El usuario ha sido creado con éxito.")
         self.volver()
-
+        
     def volver(self):
         """Funcion para volver a la ventana anterior"""
         self.grid_forget()
         self.parent.show_login_frame()  
-        
-    

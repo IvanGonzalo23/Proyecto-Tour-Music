@@ -59,10 +59,13 @@ class Eventos(ctk.CTkFrame):
             
     def mostrar_evento(self, event):
         """Funcion que muestra los eventos marcados en el map"""
-        index = self.listbox.curselection()[0]
-        evento = self.eventos[index]
-        self.mapa.set_position(evento.latitud, evento.longitud)
-        self.mapa.set_zoom(18)
+        selected_indices = self.listbox.curselection()
+        if selected_indices:
+            index = self.listbox.curselection()[0]
+            evento = self.eventos[index]
+            self.mapa.set_position(evento.latitud, evento.longitud)
+            self.mapa.set_zoom(18)
+
     
     def volver(self):
         """Funcion para volver a la ventana anterior"""
