@@ -8,12 +8,19 @@ from .ventana_historial import Historial_ventana
 
 
 class Principal(ctk.CTkFrame):
+    usuario_logeado = None
     def __init__(self,parent):
         super().__init__(parent)
         self.parent = parent
         self.widgets()
         self.listbox()
         self.buttons()
+        
+        
+        if Principal.usuario_logeado is not None:
+            self.actualizar_listbox()
+        
+        
     def widgets(self):
         self.frame= ctk.CTkFrame(self,width=700,height=500,fg_color="#4C333F",bg_color="#4C333F")
         self.frame.grid()
@@ -24,6 +31,19 @@ class Principal(ctk.CTkFrame):
     def listbox(self):
         self.listbox = tk.Listbox(self,width=60,height=20,background="#131B2E")   
         self.listbox.place(x=260,y=100)
+        
+    def actualizar_listbox(self):
+        """Función para mostrar los eventos asociados al usuario logeado en el listbox"""
+        self.listbox.delete(0, tk.END)  # Limpiamos el listbox
+
+        if Principal.usuario_logeado.get("Eventos_asignados"):
+            eventos_asignados = Principal.usuario_logeado["Eventos_asignados"]
+            for evento in eventos_asignados:
+                nombre = evento.get("Nombre", "")
+                artista = evento.get("Artista", "")
+                ubicacion = evento.get("ubicacion", "")
+            self.listbox.insert(tk.END, f"{nombre} - {artista} - {ubicacion}")
+
         
         
     def buttons(self):

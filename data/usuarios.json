@@ -1,0 +1,107 @@
+[
+    {
+        "ID": 1,
+        "Name": "sadasd",
+        "Last_name": "dsadasd",
+        "Email": "asdasd@hotmail.com",
+        "Password": "dsadsadddsad",
+        "User": "dasa",
+        "Eventos_asignados": [
+            {
+                "id": 3,
+                "Nombre": "Mas alla",
+                "Artista": "Maria Becerra",
+                "Genero": "Trap",
+                "Fecha": "20/10/23",
+                "ubicacion": "Estadio Padre Ernesto Martearena",
+                "latitud": -24.820678371667956,
+                "longitud": -65.41974609337173,
+                "direccion": "C.Fernandes Molinas",
+                "hora": "13:00",
+                "imagen": "..\\img\\Estadio.jpg"
+            }
+        ]
+    },
+    {
+        "ID": 2,
+        "Name": "dsad",
+        "Last_name": "dsad",
+        "Email": "sdad@hotmail.com",
+        "Password": "ssssssssss",
+        "User": "sss",
+        "Eventos_asignados": [
+            {
+                "id": 5,
+                "Nombre": "Voz",
+                "Artista": "Santaflow",
+                "Genero": "Rap",
+                "Fecha": "24/05/24",
+                "ubicacion": "Casa de la Cultura",
+                "latitud": -24.789619032744923,
+                "longitud": -65.40886307618581,
+                "direccion": "Caseros 460",
+                "hora": "21:00",
+                "imagen": "..\\img\\Casa_de_la_cultura.jpg"
+            }
+        ]
+    },
+    {
+        "ID": 3,
+        "Name": "dasdsa",
+        "Last_name": "dasdas",
+        "Email": "dsa@hotmail.com",
+        "Password": "dasdasdasdas",
+        "User": "dasd",
+        "Eventos_asignados": [
+            {
+                "id": 4,
+                "Nombre": "Tu",
+                "Artista": "Paulo Londra",
+                "Genero": "Trap",
+                "Fecha": "24/09/23",
+                "ubicacion": "La Ventolera",
+                "latitud": -24.77603769385386,
+                "longitud": -65.40948307618658,
+                "direccion": "O'Higgins 585",
+                "hora": "11:00",
+                "imagen": "..\\img\\La_Ventolera.jpg"
+            },
+            {
+                "id": 3,
+                "Nombre": "Mas alla",
+                "Artista": "Maria Becerra",
+                "Genero": "Trap",
+                "Fecha": "20/10/23",
+                "ubicacion": "Estadio Padre Ernesto Martearena",
+                "latitud": -24.820678371667956,
+                "longitud": -65.41974609337173,
+                "direccion": "C.Fernandes Molinas",
+                "hora": "13:00",
+                "imagen": "..\\img\\Estadio.jpg"
+            }
+        ]
+    },
+    {
+        "ID": 4,
+        "Name": "dasdd",
+        "Last_name": "dsadsa",
+        "Email": "dsadasd@hotmail.com",
+        "Password": "pruebadenuevo",
+        "User": "hola",
+        "Eventos_asignados": [
+            {
+                "id": 7,
+                "Nombre": "Eres tu",
+                "Artista": "Ulises Bueno",
+                "Genero": "Cuarteto",
+                "Fecha": "02/03/23",
+                "ubicacion": "F\u00e1brica de M\u00fasica",
+                "latitud": -24.778810874856514,
+                "longitud": -65.41142514735121,
+                "direccion": "Balcarce 875",
+                "hora": "20:00",
+                "imagen": "..\\img\\Fabrica_de_musica.jpg"
+            }
+        ]
+    }
+]

@@ -7,9 +7,8 @@ from tkinter import messagebox
 from modelo.clase_usuarios import Usuario
 from PIL import Image
 import customtkinter as ctk
-from modelo.clase_evento_usuario import ModeloEvento
+import re
 import json
-
 class Createuser(ctk.CTkFrame):
     """Clase que representa el Frame de la ventana"""
     def __init__(self,parent):
@@ -66,8 +65,8 @@ class Createuser(ctk.CTkFrame):
     def crear_usuario(self):
         """Funcion donde toma los parametros de la clase Usuario del archivo clase_usuario y le da los valores 
         ingresado en los Entrys correspondientes. Para luego ponerlos en un JSON"""
-        usuario = Usuario(self.name_entry.get(), self.last_name_entry.get(), self.email_entry.get(), self.password_entry.get(), self.user_name_entry.get())
-        usuario.crear_json("./data/usuarios.json")
+        
+        # Primero validar los campos
         if len(self.password_entry.get()) <= 8:
             messagebox.showerror("Error", "La contraseña debe tener más de 8 caracteres.")
             return
@@ -76,12 +75,32 @@ class Createuser(ctk.CTkFrame):
             messagebox.showerror("Error", "Por favor llene todos los campos.")
             return
         
-        modelo_evento = ModeloEvento(usuario.to_dict()) 
-        modelo_evento.asignar_eventos_aleatorios()
+        # Luego validar el correo electrónico
+        patron_email = ".+@.+\..+"
+        if not re.match(patron_email, self.email_entry.get()):
+            messagebox.showerror("Error", "El correo electrónico debe contener el símbolo @ y un dominio válido.")
+            return
         
+        # Finalmente crear el usuario y el JSON
+        usuario = Usuario(self.name_entry.get(), self.last_name_entry.get(), self.email_entry.get(), self.password_entry.get(), self.user_name_entry.get())
+        
+        with open("./data/historial_eventos.json", "r", encoding="utf-8") as f:
+            eventos = json.load(f)
+
+        # Finalmente crear el usuario y asignar eventos aleatorios
+        
+
+        # Cargar los eventos disponibles al usuario
+        usuario.cargar_eventos(eventos)
+
+        # Asignar eventos aleatorios al usuario
+        usuario.asignar_evento_aleatorio()
+
+        # Crear el JSON con la información del usuario y los eventos asignados
+        usuario.crear_json("./data/usuarios.json")
+
         messagebox.showinfo("Usuario creado", "El usuario ha sido creado con éxito.")
         self.volver()
-        
     def volver(self):
         """Funcion para volver a la ventana anterior"""
         self.grid_forget()

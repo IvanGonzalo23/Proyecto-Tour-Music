@@ -54,6 +54,7 @@ class Frame(ctk.CTkFrame):
                 usuarios_json = json.load(f)  
             for usuario in usuarios_json:
                 if usuario_ingresado == usuario["User"] and password_ingresado == usuario["Password"]:
+                    Principal.usuario_logeado = usuario
                     self.ventana_principal()
                     return
             messagebox.showerror("Error de inicio de sesión", "Usuario o contraseña incorrectos")
