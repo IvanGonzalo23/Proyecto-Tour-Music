@@ -1,57 +1,11 @@
 [
     {
         "ID": 1,
-        "Name": "sadasd",
-        "Last_name": "dsadasd",
-        "Email": "asdasd@hotmail.com",
-        "Password": "dsadsadddsad",
-        "User": "dasa",
-        "Eventos_asignados": [
-            {
-                "id": 3,
-                "Nombre": "Mas alla",
-                "Artista": "Maria Becerra",
-                "Genero": "Trap",
-                "Fecha": "20/10/23",
-                "ubicacion": "Estadio Padre Ernesto Martearena",
-                "latitud": -24.820678371667956,
-                "longitud": -65.41974609337173,
-                "direccion": "C.Fernandes Molinas",
-                "hora": "13:00",
-                "imagen": "..\\img\\Estadio.jpg"
-            }
-        ]
-    },
-    {
-        "ID": 2,
-        "Name": "dsad",
-        "Last_name": "dsad",
-        "Email": "sdad@hotmail.com",
-        "Password": "ssssssssss",
-        "User": "sss",
-        "Eventos_asignados": [
-            {
-                "id": 5,
-                "Nombre": "Voz",
-                "Artista": "Santaflow",
-                "Genero": "Rap",
-                "Fecha": "24/05/24",
-                "ubicacion": "Casa de la Cultura",
-                "latitud": -24.789619032744923,
-                "longitud": -65.40886307618581,
-                "direccion": "Caseros 460",
-                "hora": "21:00",
-                "imagen": "..\\img\\Casa_de_la_cultura.jpg"
-            }
-        ]
-    },
-    {
-        "ID": 3,
-        "Name": "dasdsa",
-        "Last_name": "dasdas",
-        "Email": "dsa@hotmail.com",
-        "Password": "dasdasdasdas",
-        "User": "dasd",
+        "Name": "prueba",
+        "Last_name": "prueba",
+        "Email": "prueba@hotmail.com",
+        "Password": "prueba123",
+        "User": "prueba",
         "Eventos_asignados": [
             {
                 "id": 4,
@@ -67,40 +21,66 @@
                 "imagen": "..\\img\\La_Ventolera.jpg"
             },
             {
-                "id": 3,
-                "Nombre": "Mas alla",
-                "Artista": "Maria Becerra",
-                "Genero": "Trap",
-                "Fecha": "20/10/23",
-                "ubicacion": "Estadio Padre Ernesto Martearena",
-                "latitud": -24.820678371667956,
-                "longitud": -65.41974609337173,
-                "direccion": "C.Fernandes Molinas",
-                "hora": "13:00",
-                "imagen": "..\\img\\Estadio.jpg"
+                "id": 6,
+                "Nombre": "Sos",
+                "Artista": "Luis Miguel",
+                "Genero": "Balada",
+                "Fecha": "10/09/23",
+                "ubicacion": "Paseo de los Poetas",
+                "latitud": -24.792537972132433,
+                "longitud": -65.41862234187376,
+                "direccion": "Esteco 275",
+                "hora": "15:00",
+                "imagen": "..\\img\\Paseo_de_los_poetas.jpg"
             }
         ]
     },
     {
-        "ID": 4,
-        "Name": "dasdd",
-        "Last_name": "dsadsa",
-        "Email": "dsadasd@hotmail.com",
-        "Password": "pruebadenuevo",
-        "User": "hola",
+        "ID": 2,
+        "Name": "prueba1",
+        "Last_name": "prueba1",
+        "Email": "prueba1@hotmail.com",
+        "Password": "prueba1123",
+        "User": "prueba1",
         "Eventos_asignados": [
             {
-                "id": 7,
-                "Nombre": "Eres tu",
-                "Artista": "Ulises Bueno",
-                "Genero": "Cuarteto",
-                "Fecha": "02/03/23",
-                "ubicacion": "F\u00e1brica de M\u00fasica",
-                "latitud": -24.778810874856514,
-                "longitud": -65.41142514735121,
-                "direccion": "Balcarce 875",
-                "hora": "20:00",
-                "imagen": "..\\img\\Fabrica_de_musica.jpg"
+                "id": 2,
+                "Nombre": "Corazon",
+                "Artista": "Abel Pintos",
+                "Genero": "Folclore",
+                "Fecha": "14/11/23",
+                "ubicacion": "Teatro Provincial de Salta",
+                "latitud": -24.788865493488554,
+                "longitud": -65.40959362036189,
+                "direccion": "Zuviría 70",
+                "hora": "17:00",
+                "imagen": "..\\img\\Teatro_provincial.jpg"
+            },
+            {
+                "id": 9,
+                "Nombre": "La Llamada",
+                "Artista": "Lali",
+                "Genero": "Pop",
+                "Fecha": "04/03/23",
+                "ubicacion": "Plaza 9 de julio",
+                "latitud": -24.78897971192394,
+                "longitud": -65.41025171851557,
+                "direccion": "Caseros 500",
+                "hora": "15:00",
+                "imagen": "..\\img\\Plaza_9_de_julio.jpg"
+            },
+            {
+                "id": 1,
+                "Nombre": "La leyenda",
+                "Artista": "Emanero",
+                "Genero": "Rap",
+                "Fecha": "10/12/23",
+                "ubicacion": "El Teatrino",
+                "latitud": -24.772912132659357,
+                "longitud": -65.41782054735144,
+                "direccion": "Aniceto Latorre 1211",
+                "hora": "23:00",
+                "imagen": "..\\img\\El_Teatrino.jpg"
             }
         ]
     }

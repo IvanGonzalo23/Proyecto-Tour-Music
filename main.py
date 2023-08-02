@@ -11,22 +11,28 @@ class TourMusical(ctk.CTk):
         self.geometry("700x500")
         self.resizable(False,False)
         self._set_appearance_mode("dark")
+        self.iconbitmap("img/logo.ico")
         ctk.set_default_color_theme("green")
         self.carpeta()
         self.frame = ctk.CTkFrame(self,width=700,height=500,fg_color="black",bg_color="black")
         self.frame.grid()
         
         self.paquete_imagenes = os.path.dirname(os.path.realpath(__file__))
-        self.imagen = os.path.join(self.paquete_imagenes,"img/encendido.png")
+        self.imagen = os.path.join(self.paquete_imagenes,"img/boton-de-encendido.png")
         self.imagen_boton_encendido = ctk.CTkImage(Image.open(self.imagen),size=(60,60))
         
         mi_fuente_titulo = ctk.CTkFont(family="Roboto", size=20, weight="bold")
+        texto = "''La musica constituye una revelacion mas alta que ninguna filosofia''\nLudwig Van Beethoven"
         
-        self.label = ctk.CTkLabel(self.frame,fg_color="black",text_color="yellow",text="Bienvenido a Tour Music",font=mi_fuente_titulo)
-        self.label.place(x=200,y=89)
+        fuente_frase = ctk.CTkFont(family="Franklin Gothic Book",size=12,weight="bold")
+        self.label = ctk.CTkLabel(self.frame,fg_color="black",text_color="yellow",text="Bienvenido a Tour Musical",font=mi_fuente_titulo)
+        self.label.place(x=210,y=130)
+        
+        self.label_frase = ctk.CTkLabel(self.frame,fg_color="black",text_color="yellow", text=texto,font=fuente_frase)
+        self.label_frase.place(x=134,y=200)
         
         self.btn_iniciar = ctk.CTkButton(self.frame,text=None,fg_color="black",bg_color="black",hover_color="black",cursor="hand2",command=self.abrir_ventana,image=self.imagen_boton_encendido)
-        self.btn_iniciar.place(x=190,y=300)
+        self.btn_iniciar.place(x=250,y=300)
         
     
     def abrir_ventana(self):
@@ -57,10 +63,7 @@ class TourMusical(ctk.CTk):
             os.mkdir("data")
             
         
-        
-        
-        
-        
+               
 if __name__ == "__main__":
     app = TourMusical()
     app.mainloop()

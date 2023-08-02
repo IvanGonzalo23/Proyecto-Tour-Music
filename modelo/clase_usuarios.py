@@ -1,10 +1,8 @@
 import json
 import os
 import random
-
 class Usuario:
     last_id = 0
-
     def __init__(self, name, last_name, email, password, user):
         self.id = Usuario.get_next_id()
         self.name = name
@@ -32,13 +30,14 @@ class Usuario:
         if os.path.exists(archivo):
             with open(archivo, "r", encoding="utf-8") as f:
                 self.data = json.load(f)
+        else:
+            self.data = []
 
         if len(self.password) > 8 and len(self.name) > 0 and len(self.last_name) > 0 and len(self.email) > 0 and len(self.user) > 0:
             self_dict = self.to_dict()
             self.data.append(self_dict)
-
-            with open(archivo, "w") as f:
-                json.dump(self.data, f, indent=4)
+            with open(archivo, "w",encoding="utf-8") as f:
+                json.dump(self.data, f, indent=4, ensure_ascii=False)
 
     @classmethod
     def get_next_id(cls):

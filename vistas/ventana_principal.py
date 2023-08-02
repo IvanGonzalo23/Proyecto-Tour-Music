@@ -5,6 +5,7 @@ from PIL import Image
 from .ventana_eventos import Eventos
 from .ventana_buscador import Buscador
 from .ventana_historial import Historial_ventana
+from .ventana_secundaria import Secundaria
 
 
 class Principal(ctk.CTkFrame):
@@ -26,10 +27,13 @@ class Principal(ctk.CTkFrame):
         self.frame.grid()
         self.frame_lateral = ctk.CTkFrame(self,width=200,height=500,fg_color="#2F1227",bg_color="#2F1227")
         self.frame_lateral.place(x=0,y=0)
+        mi_fuente_titulo = ctk.CTkFont(family="Roboto", size=16, weight="bold")
         
+        self.label = ctk.CTkLabel(self,text="Eventos asistidos",text_color="yellow",font=mi_fuente_titulo,fg_color="#4C333F")
+        self.label.place(x=370,y=60)
         
     def listbox(self):
-        self.listbox = tk.Listbox(self,width=60,height=20,background="#131B2E")   
+        self.listbox = tk.Listbox(self,width=60,height=20,background="#131B2E",fg="yellow",font=("Open Sans",10))   
         self.listbox.place(x=260,y=100)
         
     def actualizar_listbox(self):
@@ -42,7 +46,7 @@ class Principal(ctk.CTkFrame):
                 nombre = evento.get("Nombre", "")
                 artista = evento.get("Artista", "")
                 ubicacion = evento.get("ubicacion", "")
-            self.listbox.insert(tk.END, f"{nombre} - {artista} - {ubicacion}")
+                self.listbox.insert(tk.END, f"{nombre} - {artista} - {ubicacion}")
 
         
         
@@ -77,7 +81,13 @@ class Principal(ctk.CTkFrame):
         
         self.btn_volver = ctk.CTkButton(self.frame_lateral,image=self.imagen_boton_retroceder,text=None,fg_color="#2F1227",hover_color="#2F1227",cursor="hand2",command=lambda:[self.volver()])
         self.btn_volver.place(x=23,y=400)
-    
+        
+        self.image_siguiente = os.path.join(self.current_path,"../img/siguiente.png")
+        self.imagen_boton_siguiente = ctk.CTkImage(Image.open(self.image_siguiente),size=(60,60))
+        
+        self.btn_siguiente = ctk.CTkButton(self.frame_lateral,image=self.imagen_boton_siguiente,text=None,fg_color="#2F1227",hover_color="#2F1227",cursor="hand2",command=lambda:[self.ventana_secundaria()])
+        self.btn_siguiente.place(x=23,y=320)
+        
     
     def evento_disponibles(self):
         self.grid_forget()
@@ -95,6 +105,11 @@ class Principal(ctk.CTkFrame):
         self.fra = Historial_ventana(self.parent)
         self.fra.grid()
     
+    
+    def ventana_secundaria(self):
+        self.grid_forget()
+        self.frame_secundario = Secundaria(self.parent)
+        self.frame_secundario.grid()
     
     def volver(self):
         self.grid_forget()

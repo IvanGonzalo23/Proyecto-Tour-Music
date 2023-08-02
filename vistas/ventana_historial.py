@@ -29,7 +29,7 @@ class Historial_ventana(ctk.CTkFrame):
         self.titulo_label.place(x=0,y=40)
         
         """Listbox"""
-        self.listbox = tk.Listbox(self.frame, justify="left", width=30, height=20,fg="yellow",bg="black",cursor="hand2")
+        self.listbox = tk.Listbox(self.frame, justify="left", width=30, height=20,fg="yellow",bg="black",cursor="hand2",font=("Open Sans",9))
         self.listbox.place(x=0, y=70)
         
         """Evento del listbox"""
