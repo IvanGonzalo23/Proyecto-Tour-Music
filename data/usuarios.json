@@ -1,47 +1,11 @@
 [
     {
         "ID": 1,
-        "Name": "prueba",
-        "Last_name": "prueba",
-        "Email": "prueba@hotmail.com",
+        "Name": "prueba123",
+        "Last_name": "prueba123",
+        "Email": "prueba123@hotmail.com",
         "Password": "prueba123",
-        "User": "prueba",
-        "Eventos_asignados": [
-            {
-                "id": 4,
-                "Nombre": "Tu",
-                "Artista": "Paulo Londra",
-                "Genero": "Trap",
-                "Fecha": "24/09/23",
-                "ubicacion": "La Ventolera",
-                "latitud": -24.77603769385386,
-                "longitud": -65.40948307618658,
-                "direccion": "O'Higgins 585",
-                "hora": "11:00",
-                "imagen": "..\\img\\La_Ventolera.jpg"
-            },
-            {
-                "id": 6,
-                "Nombre": "Sos",
-                "Artista": "Luis Miguel",
-                "Genero": "Balada",
-                "Fecha": "10/09/23",
-                "ubicacion": "Paseo de los Poetas",
-                "latitud": -24.792537972132433,
-                "longitud": -65.41862234187376,
-                "direccion": "Esteco 275",
-                "hora": "15:00",
-                "imagen": "..\\img\\Paseo_de_los_poetas.jpg"
-            }
-        ]
-    },
-    {
-        "ID": 2,
-        "Name": "prueba1",
-        "Last_name": "prueba1",
-        "Email": "prueba1@hotmail.com",
-        "Password": "prueba1123",
-        "User": "prueba1",
+        "User": "prueba123",
         "Eventos_asignados": [
             {
                 "id": 2,
@@ -57,30 +21,30 @@
                 "imagen": "..\\img\\Teatro_provincial.jpg"
             },
             {
-                "id": 9,
-                "Nombre": "La Llamada",
-                "Artista": "Lali",
-                "Genero": "Pop",
-                "Fecha": "04/03/23",
-                "ubicacion": "Plaza 9 de julio",
-                "latitud": -24.78897971192394,
-                "longitud": -65.41025171851557,
-                "direccion": "Caseros 500",
+                "id": 6,
+                "Nombre": "Sos",
+                "Artista": "Luis Miguel",
+                "Genero": "Balada",
+                "Fecha": "10/09/23",
+                "ubicacion": "Paseo de los Poetas",
+                "latitud": -24.792537972132433,
+                "longitud": -65.41862234187376,
+                "direccion": "Esteco 275",
                 "hora": "15:00",
-                "imagen": "..\\img\\Plaza_9_de_julio.jpg"
+                "imagen": "..\\img\\Paseo_de_los_poetas.jpg"
             },
             {
-                "id": 1,
-                "Nombre": "La leyenda",
-                "Artista": "Emanero",
-                "Genero": "Rap",
-                "Fecha": "10/12/23",
-                "ubicacion": "El Teatrino",
-                "latitud": -24.772912132659357,
-                "longitud": -65.41782054735144,
-                "direccion": "Aniceto Latorre 1211",
-                "hora": "23:00",
-                "imagen": "..\\img\\El_Teatrino.jpg"
+                "id": 8,
+                "Nombre": "Soy yo",
+                "Artista": "Tini",
+                "Genero": "Pop",
+                "Fecha": "10/01/23",
+                "ubicacion": "Teatro Nuestra Señora del Huerto",
+                "latitud": -24.78784067111268,
+                "longitud": -65.40682488783392,
+                "direccion": "Pueyrredón 175",
+                "hora": "15:00",
+                "imagen": "..\\img\\Teatro_huerto.jpg"
             }
         ]
     }

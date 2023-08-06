@@ -50,14 +50,17 @@ class Frame(ctk.CTkFrame):
             """Función que verifica si el usuario y la contraseña coinciden con los datos del archivo JSON"""
             usuario_ingresado = self.usuario_entry.get()
             password_ingresado = self.password_entry.get()
-            with open("./data/usuarios.json", "r") as f:
-                usuarios_json = json.load(f)  
-            for usuario in usuarios_json:
-                if usuario_ingresado == usuario["User"] and password_ingresado == usuario["Password"]:
-                    Principal.usuario_logeado = usuario
-                    self.ventana_principal()
-                    return
-            messagebox.showerror("Error de inicio de sesión", "Usuario o contraseña incorrectos")
+            try:
+                with open("./data/usuarios.json", "r") as f:
+                    usuarios_json = json.load(f)  
+                for usuario in usuarios_json:
+                    if usuario_ingresado == usuario["User"] and password_ingresado == usuario["Password"]:
+                        Principal.usuario_logeado = usuario
+                        self.ventana_principal()
+                        return
+                messagebox.showerror("Error de inicio de sesión", "Usuario o contraseña incorrectos")
+            except:
+                messagebox.showerror("Error de inicio de sesion","Usuario inexistente")
             
     def crear_cuenta(self): 
         """Funcion para ir al Frame donde se crea los usuarios"""

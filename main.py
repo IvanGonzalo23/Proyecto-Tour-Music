@@ -1,6 +1,7 @@
 import customtkinter as ctk
 from vistas.ventana_login import Frame
 from vistas.ventana_principal import Principal
+from vistas.ventana_secundaria import Secundaria
 import os
 from PIL import Image
 class TourMusical(ctk.CTk):
@@ -9,7 +10,7 @@ class TourMusical(ctk.CTk):
         super().__init__()
         self.title("Tour Musical")
         self.geometry("700x500")
-        self.resizable(False,False)
+        self.resizable(False,False) 
         self._set_appearance_mode("dark")
         self.iconbitmap("img/logo.ico")
         ctk.set_default_color_theme("green")
@@ -60,8 +61,15 @@ class TourMusical(ctk.CTk):
     def carpeta(self):
         """Funcion extra para crear una carpeta data si es que no existe"""
         if not os.path.exists("data"):
-            os.mkdir("data")
-            
+            os.mkdir("data") 
+    
+    def show_secundaria_frame(self):
+        """Funcion para mostrar la ventana principal"""
+        if hasattr(self,"secundaria_frame"):
+            self.secundaria_frame.destroy()
+        self.secundaria_frame = Secundaria(self)
+        self.secundaria_frame.grid()
+    
         
                
 if __name__ == "__main__":

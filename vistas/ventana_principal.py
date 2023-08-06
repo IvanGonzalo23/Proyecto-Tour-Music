@@ -108,9 +108,12 @@ class Principal(ctk.CTkFrame):
     
     def ventana_secundaria(self):
         self.grid_forget()
-        self.frame_secundario = Secundaria(self.parent)
+        self.frame_secundario = Secundaria(self.parent,usuario_logeado=Principal.usuario_logeado)
         self.frame_secundario.grid()
+    
     
     def volver(self):
         self.grid_forget()
         self.parent.show_login_frame()
+        
+        
