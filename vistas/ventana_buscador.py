@@ -7,12 +7,14 @@ import tkintermapview
 import os
 
 class Buscador(ctk.CTkFrame):
+    """Clase que representa un buscador de eventos"""
     def __init__(self,parent):
         super().__init__(parent)
         self.parent = parent
         self.frame= ctk.CTkFrame(self,width=700,height=500,fg_color="#4C333F",bg_color="#4C333F")
         self.frame.grid()
         
+        """Label del Frame"""
         self.label_nombre_evento = ctk.CTkLabel(self,text="Nombre del evento",text_color="yellow",fg_color="#4C333F")
         self.label_nombre_evento.place(x=100,y=100)
         
@@ -53,6 +55,7 @@ class Buscador(ctk.CTkFrame):
         self.entry_ubicacion = ctk.CTkEntry(self,width=140,height=28,border_color="#38ad7e")
         self.entry_ubicacion.place(x=250,y=500)
         
+        """Botones del Frame"""
         self.btn_volver = ctk.CTkButton(self,image=self.imagen_boton_retroceder,text=None,fg_color="#4C333F",hover_color="#4C333F",cursor="hand2",command=lambda:[self.volver()])
         self.btn_volver.place(x=0,y=450)
         
@@ -65,6 +68,8 @@ class Buscador(ctk.CTkFrame):
         self.parent.show_principal_frame()
         
     def evento_encontrado(self):
+        """Funcion donde compara lo ingresado en los entrys con el historial de eventos
+        Si encuentra una similitud se mostrara la informacion del evento"""
         self.nombre_ingresado = self.entry_nombre_evento.get()
         self.artista_ingresado = self.entry_nombre_artista.get()
         self.genero_ingresado = self.entry_genero.get()
@@ -92,11 +97,14 @@ class Buscador(ctk.CTkFrame):
         self.entry_ubicacion.delete(0,tk.END)
         
     def mostrar_frame(self):
+        """Funcion que abre la ventana que muestra el evento encontrado"""
         self.grid_forget()
         self.mostrar_evento_encontrado()
 
     
     def mostrar_evento_encontrado(self):
+        """Funcion que muestra una ventana mediante Toplevel en donde esta tiene
+        la informacion del evento encontrado"""
         if len(self.eventos_encontrados) > 0:
             for eventos in self.eventos_encontrados: # Aquí asumimos que solo se muestra el primer evento encontrado
 

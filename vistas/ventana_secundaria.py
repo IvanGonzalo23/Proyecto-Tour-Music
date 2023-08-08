@@ -3,11 +3,12 @@ import customtkinter as ctk
 import os
 from PIL import Image
 import json
-from .ventana_favoritos import Favoritos
-from .ventana_agregar_favoritos import Agregar_favoritos
-from .ventana_reseña import Reseña
+
+
+
 
 class Secundaria(ctk.CTkFrame):
+    """Clase que representa el Frame de la ventana secundaria del programa"""
     def __init__(self,parent,usuario_logeado=None):
         super().__init__(parent)
         self.parent = parent
@@ -18,6 +19,7 @@ class Secundaria(ctk.CTkFrame):
         
         
     def widgets(self):
+        """Funcion que crea los widgets para el programa"""
         self.frame= ctk.CTkFrame(self,width=700,height=500,fg_color="#4C333F",bg_color="#4C333F")
         self.frame.grid()
         self.frame_lateral = ctk.CTkFrame(self,width=200,height=500,fg_color="#2F1227",bg_color="#2F1227")
@@ -28,12 +30,14 @@ class Secundaria(ctk.CTkFrame):
         self.label.place(x=370,y=60)
         
     def listbox(self):
+        """Funcion que crea el listbox del Frame"""
         self.listbox = tk.Listbox(self,width=60,height=20,background="#131B2E",fg="yellow",font=("Open Sans",10))   
         self.listbox.place(x=260,y=100)
         self.actualizar_listbox()
         self.listbox.bind("<Double-Button-1>", self.mostrar_informacion_reseña)
           
     def actualizar_listbox(self):
+        """Funcion que actualiza el listbox para ir agregando las reseñas que se iran creando"""
         try:
             with open("data/reseñas.json", "r", encoding="utf-8") as file:
                 reseñas = json.load(file)
@@ -51,6 +55,7 @@ class Secundaria(ctk.CTkFrame):
             pass
         
     def buttons(self):
+        """Funcion que crea los botones"""
         self.current_path = os.path.dirname(os.path.realpath(__file__)) #paquete donde ira los imagenes
         self.image_reseña = os.path.join(self.current_path, "../img/reseña.png")
         
@@ -128,21 +133,22 @@ class Secundaria(ctk.CTkFrame):
     
         
     def ventana_agregar_favoritos(self):
+        """Funcion que abre la ventana para agregar favoritos"""
         self.grid_forget()
-        self.frame_fav = Agregar_favoritos(self.parent, usuario_logeado=self.usuario_logeado)
-        self.frame_fav.grid()
+        self.parent.show_agregar_favorito()
     
     def reseñas(self):
+        """Funcion que abre la ventana de reseñas"""
         self.grid_forget()
-        self.frame_reseña = Reseña(self.parent, usuario_logeado=self.usuario_logeado)
-        self.frame_reseña.grid()
+        self.parent.show_reseña()
     
     def favoritos(self):
+        """Funcion que abre la venana de favoritos"""
         self.grid_forget()
-        self.frame_favoritos = Favoritos(self.parent, usuario_logeado=self.usuario_logeado)
-        self.frame_favoritos.grid()
+        self.parent.show_favorito()
     
     def volver(self):
+        """Funcion que nos devuelve a la ventana principal"""
         self.grid_forget()
         self.parent.show_principal_frame()
         

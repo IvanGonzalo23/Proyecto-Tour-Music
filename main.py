@@ -2,9 +2,13 @@ import customtkinter as ctk
 from vistas.ventana_login import Frame
 from vistas.ventana_principal import Principal
 from vistas.ventana_secundaria import Secundaria
+from vistas.ventana_reseña import Reseña
+from vistas.ventana_agregar_favoritos import Agregar_favoritos
+from vistas.ventana_favoritos import Favoritos
 import os
 from PIL import Image
 class TourMusical(ctk.CTk):
+    usuario_logeado = None
     """Clase donde representa un programa de musica"""
     def __init__(self):
         super().__init__()
@@ -70,7 +74,26 @@ class TourMusical(ctk.CTk):
         self.secundaria_frame = Secundaria(self)
         self.secundaria_frame.grid()
     
+    def show_reseña(self):
+        """Funcion para mostrar la ventana reseñas"""
+        if hasattr(self,"reseña_frame"):
+            self.reseña_frame.destroy()
+        self.reseña_frame = Reseña(self,usuario_logeado=Principal.usuario_logeado)
+        self.reseña_frame.grid()
         
+    def show_agregar_favorito(self):
+        """Funcion para mostrar la ventana para agregar favoritos"""
+        if hasattr(self,"agregar_frame"):
+            self.agregar_frame.destroy()
+        self.agregar_frame = Agregar_favoritos(self,usuario_logeado=Principal.usuario_logeado)
+        self.agregar_frame.grid()
+        
+    def show_favorito(self):
+        """Funcion para mostrar la ventana de favoritos"""
+        if hasattr(self,"favorito_frame"):
+            self.favorito_frame.destroy()
+        self.favorito_frame = Favoritos(self,usuario_logeado=Principal.usuario_logeado)
+        self.favorito_frame.grid()
                
 if __name__ == "__main__":
     app = TourMusical()

@@ -1,42 +1,27 @@
 [
     {
         "usuario": "prueba123",
-        "evento": "La Llamada",
-        "favorito": true
-    },
-    {
-        "usuario": "prueba123",
-        "evento": "Hola Mundo",
-        "favorito": true
-    },
-    {
-        "usuario": "prueba123",
         "evento": "La leyenda",
         "favorito": true
     },
     {
         "usuario": "prueba123",
-        "evento": "Voz",
+        "evento": "Corazon",
         "favorito": true
     },
     {
         "usuario": "prueba123",
+        "evento": "Mas alla",
+        "favorito": true
+    },
+    {
+        "usuario": "prueba1234",
         "evento": "Eres tu",
         "favorito": true
     },
     {
-        "usuario": "prueba123",
-        "evento": "Hola Mundo",
-        "favorito": true
-    },
-    {
-        "usuario": "prueba123",
+        "usuario": "prueba1234",
         "evento": "Soy yo",
-        "favorito": true
-    },
-    {
-        "usuario": "prueba123",
-        "evento": "Voz",
         "favorito": true
     }
 ]

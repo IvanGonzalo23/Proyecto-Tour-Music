@@ -47,5 +47,41 @@
                 "imagen": "..\\img\\Teatro_huerto.jpg"
             }
         ]
+    },
+    {
+        "ID": 2,
+        "Name": "prueba1234",
+        "Last_name": "prueba1234",
+        "Email": "prueba1234@hotmail.com",
+        "Password": "prueba1234",
+        "User": "prueba1234",
+        "Eventos_asignados": [
+            {
+                "id": 6,
+                "Nombre": "Sos",
+                "Artista": "Luis Miguel",
+                "Genero": "Balada",
+                "Fecha": "10/09/23",
+                "ubicacion": "Paseo de los Poetas",
+                "latitud": -24.792537972132433,
+                "longitud": -65.41862234187376,
+                "direccion": "Esteco 275",
+                "hora": "15:00",
+                "imagen": "..\\img\\Paseo_de_los_poetas.jpg"
+            },
+            {
+                "id": 4,
+                "Nombre": "Tu",
+                "Artista": "Paulo Londra",
+                "Genero": "Trap",
+                "Fecha": "24/09/23",
+                "ubicacion": "La Ventolera",
+                "latitud": -24.77603769385386,
+                "longitud": -65.40948307618658,
+                "direccion": "O'Higgins 585",
+                "hora": "11:00",
+                "imagen": "..\\img\\La_Ventolera.jpg"
+            }
+        ]
     }
 ]

@@ -8,11 +8,12 @@ import os
 
 class Reseña(ctk.CTkFrame):
     """Clase que representa el Frame para crear una reseña"""
-    def __init__(self, parent, usuario_logeado):
+    def __init__(self, parent, usuario_logeado=None):
         super().__init__(parent)
         self.usuario_logeado = usuario_logeado
         self.parent = parent
         self.widgets()
+        print("usuario: ",self.usuario_logeado["User"]," ingreso a reseñas")
 
     def widgets(self):
         """Funcion que crea los widgets del programa"""
@@ -26,10 +27,10 @@ class Reseña(ctk.CTkFrame):
 
         eventos_artistas = [f"{evento['Nombre']} - {evento['Artista']}" for evento in eventos_historial]
 
-        self.combobox_evento = ttk.Combobox(self, values=eventos_artistas)
+        self.combobox_evento = ctk.CTkComboBox(self, values=eventos_artistas)
         self.combobox_evento.place(x=300, y=20)
 
-        self.text_resena = tk.Text(self, height=23,width=40, wrap=tk.WORD)
+        self.text_resena = tk.Text(self, height=23,width=40, wrap=tk.WORD,background="#131B2E",font=("Open Sans",10),fg="yellow")
         self.text_resena.place(x=200, y=70)
         
         self.guardar_image = os.path.join(self.current_path, "../img/guardar.png")
@@ -47,40 +48,43 @@ class Reseña(ctk.CTkFrame):
     
     def guardar_resena(self):
         """Funcion que guarda la reseña ingresada"""
-        evento_seleccionado = self.combobox_evento.get()
         try:
-            evento, artista = evento_seleccionado.split(" -")
-        
+            evento_seleccionado = self.combobox_evento.get()
+            try:
+                evento, artista = evento_seleccionado.split(" -")
+            
+            except:
+                messagebox.showerror("Error","Por favor, escoga una opcion")
+
+            resenia = self.text_resena.get("1.0", tk.END).strip()
+            if not resenia:
+                messagebox.showerror("Error", "Por favor, ingresa una reseña.")
+                return
+
+            nombre_usuario = self.usuario_logeado["User"]  # Obtener el nombre del usuario
+
+            nueva_reseña = {
+                "usuario": nombre_usuario,
+                "evento": evento,
+                "artista": artista,
+                "reseña": resenia
+            }
+
+            try:
+                with open("data/reseñas.json", "r",encoding="utf-8") as file:
+                    reseñas = json.load(file)
+            except FileNotFoundError:
+                reseñas = []
+
+            reseñas.append(nueva_reseña)
+            
+            with open("data/reseñas.json", "w",encoding="utf-8") as file:
+                json.dump(reseñas, file,indent=4,ensure_ascii=False)
+
+            messagebox.showinfo("Éxito", "Reseña guardada correctamente.")
+            self.text_resena.delete("1.0", tk.END)
         except:
-            messagebox.showerror("Error","Por favor, escoga una opcion")
-
-        resenia = self.text_resena.get("1.0", tk.END).strip()
-        if not resenia:
-            messagebox.showerror("Error", "Por favor, ingresa una reseña.")
-            return
-
-        nombre_usuario = self.usuario_logeado["User"]  # Obtener el nombre del usuario
-
-        nueva_reseña = {
-            "usuario": nombre_usuario,
-            "evento": evento,
-            "artista": artista,
-            "reseña": resenia
-        }
-
-        try:
-            with open("data/reseñas.json", "r",encoding="utf-8") as file:
-                reseñas = json.load(file)
-        except FileNotFoundError:
-            reseñas = []
-
-        reseñas.append(nueva_reseña)
-        
-        with open("data/reseñas.json", "w",encoding="utf-8") as file:
-            json.dump(reseñas, file,indent=4,ensure_ascii=False)
-
-        messagebox.showinfo("Éxito", "Reseña guardada correctamente.")
-        self.text_resena.delete("1.0", tk.END)
+            pass
 
     
     def volver(self):

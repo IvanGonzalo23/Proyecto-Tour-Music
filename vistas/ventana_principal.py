@@ -9,6 +9,7 @@ from .ventana_secundaria import Secundaria
 
 
 class Principal(ctk.CTkFrame):
+    """Clase que representa la ventana principal del programa"""
     usuario_logeado = None
     def __init__(self,parent):
         super().__init__(parent)
@@ -23,6 +24,7 @@ class Principal(ctk.CTkFrame):
         
         
     def widgets(self):
+        """Funcion que crea los widgets del frame"""
         self.frame= ctk.CTkFrame(self,width=700,height=500,fg_color="#4C333F",bg_color="#4C333F")
         self.frame.grid()
         self.frame_lateral = ctk.CTkFrame(self,width=200,height=500,fg_color="#2F1227",bg_color="#2F1227")
@@ -33,6 +35,7 @@ class Principal(ctk.CTkFrame):
         self.label.place(x=370,y=60)
         
     def listbox(self):
+        """Funcion que crea el listbox"""
         self.listbox = tk.Listbox(self,width=60,height=20,background="#131B2E",fg="yellow",font=("Open Sans",10))   
         self.listbox.place(x=260,y=100)
         
@@ -90,17 +93,20 @@ class Principal(ctk.CTkFrame):
         
     
     def evento_disponibles(self):
+        """Funcion que abre la ventana de eventos disponibles"""
         self.grid_forget()
         self.fram = Eventos(self.parent)
         self.fram.grid()
     
     
     def buscador(self):
+        """Funcion que abre la ventana del buscador"""
         self.grid_forget()
         self.frame = Buscador(self.parent)
         self.frame.grid()
         
     def historial(self):
+        """Funcion que abre la ventana del historial"""
         self.grid_forget()
         self.fra = Historial_ventana(self.parent)
         self.fra.grid()

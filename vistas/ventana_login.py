@@ -47,7 +47,9 @@ class Frame(ctk.CTkFrame):
         
         
     def login_usuario(self):
-            """Función que verifica si el usuario y la contraseña coinciden con los datos del archivo JSON"""
+            """Función que verifica si el usuario y la contraseña coinciden con los datos del archivo JSON" para despues guardar
+            ese usuario en una variable llamada usuario_logeado que esta en la clase Principal. 
+            En donde se la usara mediante el resto del programa"""
             usuario_ingresado = self.usuario_entry.get()
             password_ingresado = self.password_entry.get()
             try:
