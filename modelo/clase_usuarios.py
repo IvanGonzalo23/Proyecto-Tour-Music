@@ -44,12 +44,12 @@ class Usuario:
         """Función que obtiene el siguiente ID autoincrementado"""
         if cls.last_id == 0:
             if os.path.exists("./data/usuarios.json"):
-                # Si hay un archivo de usuarios, obtenemos el ID más grande
+               
                 with open("./data/usuarios.json", "r", encoding="utf-8") as f:
                     usuarios = json.load(f)
                     cls.last_id = max(usuario["ID"] for usuario in usuarios) if usuarios else 0
             else:
-                # Si no hay archivo de usuarios, el ID comienza desde 1
+                
                 cls.last_id = 0
 
         cls.last_id += 1

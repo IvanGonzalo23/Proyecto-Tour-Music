@@ -1,6 +1,8 @@
 import tkinter as tk
 import customtkinter as ctk
 import json
+from PIL import Image
+import os
 
 class Favoritos(ctk.CTkFrame):
     """Clase que representa el Frame para la ventana de favoritos"""
@@ -18,9 +20,12 @@ class Favoritos(ctk.CTkFrame):
         mi_fuente = ctk.CTkFont(family="Roboto", size=16, weight="bold")
         self.label = ctk.CTkLabel(self, text="Favoritos", text_color="yellow", bg_color="#4C333F", fg_color="#4C333F", font=mi_fuente)
         self.label.place(x=300, y=50)
+        self.current_path = os.path.dirname(os.path.realpath(__file__))
         
-        self.btn_volver = ctk.CTkButton(self, text="Volver", command=lambda: [self.volver()])
-        self.btn_volver.place(x=100, y=460)
+        self.image_volver = os.path.join(self.current_path,"../img/retroceder.png")
+        self.imagen_boton_volver = ctk.CTkImage(Image.open(self.image_volver),size=(40,40))
+        self.btn_volver = ctk.CTkButton(self, text=None, command=lambda: [self.volver()],image=self.imagen_boton_volver,fg_color="#4C333F",bg_color="#4C333F",hover_color="#4C333F",cursor="hand2")
+        self.btn_volver.place(x=12, y=440)
 
     def listbox(self):
         """Funcion que crea un listbox con los eventos favoritos del usuario logeado"""

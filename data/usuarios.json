@@ -1,12 +1,25 @@
 [
     {
         "ID": 1,
-        "Name": "prueba123",
-        "Last_name": "prueba123",
-        "Email": "prueba123@hotmail.com",
-        "Password": "prueba123",
-        "User": "prueba123",
+        "Name": "usuario1",
+        "Last_name": "usuario1",
+        "Email": "usuario1@hotmail.com",
+        "Password": "usuario111",
+        "User": "usuario1",
         "Eventos_asignados": [
+            {
+                "id": 6,
+                "Nombre": "Sos",
+                "Artista": "Luis Miguel",
+                "Genero": "Balada",
+                "Fecha": "10/09/23",
+                "ubicacion": "Paseo de los Poetas",
+                "latitud": -24.792537972132433,
+                "longitud": -65.41862234187376,
+                "direccion": "Esteco 275",
+                "hora": "15:00",
+                "imagen": "..\\img\\Paseo_de_los_poetas.jpg"
+            },
             {
                 "id": 2,
                 "Nombre": "Corazon",
@@ -21,18 +34,41 @@
                 "imagen": "..\\img\\Teatro_provincial.jpg"
             },
             {
-                "id": 6,
-                "Nombre": "Sos",
-                "Artista": "Luis Miguel",
-                "Genero": "Balada",
-                "Fecha": "10/09/23",
-                "ubicacion": "Paseo de los Poetas",
-                "latitud": -24.792537972132433,
-                "longitud": -65.41862234187376,
-                "direccion": "Esteco 275",
+                "id": 9,
+                "Nombre": "La Llamada",
+                "Artista": "Lali",
+                "Genero": "Pop",
+                "Fecha": "04/03/23",
+                "ubicacion": "Plaza 9 de julio",
+                "latitud": -24.78897971192394,
+                "longitud": -65.41025171851557,
+                "direccion": "Caseros 500",
                 "hora": "15:00",
-                "imagen": "..\\img\\Paseo_de_los_poetas.jpg"
+                "imagen": "..\\img\\Plaza_9_de_julio.jpg"
             },
+            {
+                "id": 3,
+                "Nombre": "Mas alla",
+                "Artista": "Maria Becerra",
+                "Genero": "Trap",
+                "Fecha": "20/10/23",
+                "ubicacion": "Estadio Padre Ernesto Martearena",
+                "latitud": -24.820678371667956,
+                "longitud": -65.41974609337173,
+                "direccion": "C.Fernandes Molinas",
+                "hora": "13:00",
+                "imagen": "..\\img\\Estadio.jpg"
+            }
+        ]
+    },
+    {
+        "ID": 2,
+        "Name": "usuario2",
+        "Last_name": "usuario2",
+        "Email": "usuario2@hotmail.com",
+        "Password": "usuario222",
+        "User": "usuario2",
+        "Eventos_asignados": [
             {
                 "id": 8,
                 "Nombre": "Soy yo",
@@ -45,42 +81,19 @@
                 "direccion": "Pueyrredón 175",
                 "hora": "15:00",
                 "imagen": "..\\img\\Teatro_huerto.jpg"
-            }
-        ]
-    },
-    {
-        "ID": 2,
-        "Name": "prueba1234",
-        "Last_name": "prueba1234",
-        "Email": "prueba1234@hotmail.com",
-        "Password": "prueba1234",
-        "User": "prueba1234",
-        "Eventos_asignados": [
-            {
-                "id": 6,
-                "Nombre": "Sos",
-                "Artista": "Luis Miguel",
-                "Genero": "Balada",
-                "Fecha": "10/09/23",
-                "ubicacion": "Paseo de los Poetas",
-                "latitud": -24.792537972132433,
-                "longitud": -65.41862234187376,
-                "direccion": "Esteco 275",
-                "hora": "15:00",
-                "imagen": "..\\img\\Paseo_de_los_poetas.jpg"
             },
             {
-                "id": 4,
-                "Nombre": "Tu",
-                "Artista": "Paulo Londra",
-                "Genero": "Trap",
-                "Fecha": "24/09/23",
-                "ubicacion": "La Ventolera",
-                "latitud": -24.77603769385386,
-                "longitud": -65.40948307618658,
-                "direccion": "O'Higgins 585",
-                "hora": "11:00",
-                "imagen": "..\\img\\La_Ventolera.jpg"
+                "id": 2,
+                "Nombre": "Corazon",
+                "Artista": "Abel Pintos",
+                "Genero": "Folclore",
+                "Fecha": "14/11/23",
+                "ubicacion": "Teatro Provincial de Salta",
+                "latitud": -24.788865493488554,
+                "longitud": -65.40959362036189,
+                "direccion": "Zuviría 70",
+                "hora": "17:00",
+                "imagen": "..\\img\\Teatro_provincial.jpg"
             }
         ]
     }

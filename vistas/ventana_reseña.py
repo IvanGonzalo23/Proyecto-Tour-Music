@@ -61,7 +61,7 @@ class Reseña(ctk.CTkFrame):
                 messagebox.showerror("Error", "Por favor, ingresa una reseña.")
                 return
 
-            nombre_usuario = self.usuario_logeado["User"]  # Obtener el nombre del usuario
+            nombre_usuario = self.usuario_logeado["User"]  
 
             nueva_reseña = {
                 "usuario": nombre_usuario,

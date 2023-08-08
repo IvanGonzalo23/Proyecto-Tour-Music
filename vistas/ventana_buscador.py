@@ -106,7 +106,7 @@ class Buscador(ctk.CTkFrame):
         """Funcion que muestra una ventana mediante Toplevel en donde esta tiene
         la informacion del evento encontrado"""
         if len(self.eventos_encontrados) > 0:
-            for eventos in self.eventos_encontrados: # Aquí asumimos que solo se muestra el primer evento encontrado
+            for eventos in self.eventos_encontrados: 
 
                 top = tk.Toplevel(self)
                 top.title("Evento Encontrado")
@@ -138,7 +138,7 @@ class Buscador(ctk.CTkFrame):
                 info_mapa=f"{eventos.direccion} - {eventos.ubicacion}"
                 latitud = eventos.latitud 
                 longitud = eventos.longitud 
-                #falta modificar
+               
             
                 mapa = tkintermapview.TkinterMapView(frame, width=700, height=500, corner_radius=0)
                 mapa.set_position(-24.790383333333335, -65.41429999999999723)

@@ -66,7 +66,6 @@ class Createuser(ctk.CTkFrame):
         """Funcion donde toma los parametros de la clase Usuario del archivo clase_usuario y le da los valores 
         ingresado en los Entrys correspondientes. Para luego ponerlos en un JSON"""
         
-        # Primero validar los campos
         if len(self.password_entry.get()) <= 8:
             messagebox.showerror("Error", "La contraseña debe tener más de 8 caracteres.")
             return
@@ -75,28 +74,21 @@ class Createuser(ctk.CTkFrame):
             messagebox.showerror("Error", "Por favor llene todos los campos.")
             return
         
-        # Luego validar el correo electrónico
         patron_email = ".+@.+\..+"
         if not re.match(patron_email, self.email_entry.get()):
             messagebox.showerror("Error", "El correo electrónico debe contener el símbolo @ y un dominio válido.")
             return
         
-        # Finalmente crear el usuario y el JSON
         usuario = Usuario(self.name_entry.get(), self.last_name_entry.get(), self.email_entry.get(), self.password_entry.get(), self.user_name_entry.get())
         
         with open("./data/historial_eventos.json", "r", encoding="utf-8") as f:
             eventos = json.load(f)
 
-        # Finalmente crear el usuario y asignar eventos aleatorios
         
-
-        # Cargar los eventos disponibles al usuario
         usuario.cargar_eventos(eventos)
 
-        # Asignar eventos aleatorios al usuario
         usuario.asignar_evento_aleatorio()
 
-        # Crear el JSON con la información del usuario y los eventos asignados
         usuario.crear_json("./data/usuarios.json")
 
         messagebox.showinfo("Usuario creado", "El usuario ha sido creado con éxito.")

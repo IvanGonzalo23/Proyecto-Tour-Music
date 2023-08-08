@@ -56,7 +56,7 @@ class Secundaria(ctk.CTkFrame):
         
     def buttons(self):
         """Funcion que crea los botones"""
-        self.current_path = os.path.dirname(os.path.realpath(__file__)) #paquete donde ira los imagenes
+        self.current_path = os.path.dirname(os.path.realpath(__file__)) 
         self.image_reseña = os.path.join(self.current_path, "../img/reseña.png")
         
         self.imagen_boton_reseña = ctk.CTkImage(Image.open(self.image_reseña),size=(60,60))

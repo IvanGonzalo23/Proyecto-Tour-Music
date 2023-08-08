@@ -1,7 +1,8 @@
 import tkinter as tk
 import customtkinter as ctk
 import json
-
+import os
+from PIL import Image
 class Agregar_favoritos(ctk.CTkFrame):
     """Clase que representa el Frame para agregar favoritos"""
     def __init__(self, parent, usuario_logeado=None):
@@ -19,11 +20,17 @@ class Agregar_favoritos(ctk.CTkFrame):
         self.label = ctk.CTkLabel(self, text="Favoritos", text_color="yellow", bg_color="#4C333F", fg_color="#4C333F", font=mi_fuente)
         self.label.place(x=300, y=50)
 
-        self.btn_agregar = ctk.CTkButton(self, text="Agregar", command=self.agregar_favorito)
-        self.btn_agregar.place(x=400, y=460)
+        self.current_path = os.path.dirname(os.path.realpath(__file__)) 
+        
+        self.image_agregar = os.path.join(self.current_path,"../img/agregar_favoritos.png")
+        self.imagen_boton_agregar = ctk.CTkImage(Image.open(self.image_agregar),size=(40,40))
+        self.btn_agregar = ctk.CTkButton(self, text=None, command=self.agregar_favorito,image=self.imagen_boton_agregar,fg_color="#4C333F",bg_color="#4C333F",hover_color="#4C333F",cursor="hand2")
+        self.btn_agregar.place(x=580, y=420)
 
-        self.btn_volver = ctk.CTkButton(self, text="Volver", command=lambda: [self.volver()])
-        self.btn_volver.place(x=100, y=460)
+        self.image_volver = os.path.join(self.current_path,"../img/retroceder.png")
+        self.imagen_boton_volver = ctk.CTkImage(Image.open(self.image_volver),size=(40,40))
+        self.btn_volver = ctk.CTkButton(self, text=None, command=lambda: [self.volver()],image=self.imagen_boton_volver,fg_color="#4C333F",bg_color="#4C333F",hover_color="#4C333F",cursor="hand2")
+        self.btn_volver.place(x=10, y=420)
 
     def listbox(self):
         """Funcion que crea el listbox con la lista de eventos"""

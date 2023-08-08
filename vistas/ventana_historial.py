@@ -15,7 +15,7 @@ class Historial_ventana(ctk.CTkFrame):
     def widgets(self):
         """Funcion que sirve para poner los widgets del Frame"""
         
-        self.frame = ctk.CTkFrame(self, width=700, height=500, fg_color="black") #Frame
+        self.frame = ctk.CTkFrame(self, width=700, height=500, fg_color="black") 
         self.frame.grid()
         
         self.current_path = os.path.dirname(os.path.realpath(__file__))

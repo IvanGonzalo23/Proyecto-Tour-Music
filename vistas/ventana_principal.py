@@ -41,8 +41,7 @@ class Principal(ctk.CTkFrame):
         
     def actualizar_listbox(self):
         """Función para mostrar los eventos asociados al usuario logeado en el listbox"""
-        self.listbox.delete(0, tk.END)  # Limpiamos el listbox
-
+        self.listbox.delete(0, tk.END) 
         if Principal.usuario_logeado.get("Eventos_asignados"):
             eventos_asignados = Principal.usuario_logeado["Eventos_asignados"]
             for evento in eventos_asignados:
@@ -55,7 +54,7 @@ class Principal(ctk.CTkFrame):
         
     def buttons(self):
         """funcion que crea los botones del Frame"""
-        self.current_path = os.path.dirname(os.path.realpath(__file__)) #paquete donde ira los imagenes
+        self.current_path = os.path.dirname(os.path.realpath(__file__)) 
         self.image_path = os.path.join(self.current_path, "../img/evento.png")
         """Se toma las imagenes del directorio img para usarlas como botones"""
         self.bg_image = ctk.CTkImage(

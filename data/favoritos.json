@@ -1,26 +1,21 @@
 [
     {
-        "usuario": "prueba123",
+        "usuario": "usuario1",
         "evento": "La leyenda",
         "favorito": true
     },
     {
-        "usuario": "prueba123",
+        "usuario": "usuario1",
         "evento": "Corazon",
         "favorito": true
     },
     {
-        "usuario": "prueba123",
-        "evento": "Mas alla",
+        "usuario": "usuario2",
+        "evento": "Tu",
         "favorito": true
     },
     {
-        "usuario": "prueba1234",
-        "evento": "Eres tu",
-        "favorito": true
-    },
-    {
-        "usuario": "prueba1234",
+        "usuario": "usuario2",
         "evento": "Soy yo",
         "favorito": true
     }
