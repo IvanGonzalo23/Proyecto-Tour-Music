@@ -13,7 +13,6 @@ class Reseña(ctk.CTkFrame):
         self.usuario_logeado = usuario_logeado
         self.parent = parent
         self.widgets()
-        print("usuario: ",self.usuario_logeado["User"]," ingreso a reseñas")
 
     def widgets(self):
         """Funcion que crea los widgets del programa"""
